@@ -6,8 +6,8 @@ import "./styles.css";
 
 const styles = {
   item: {
-    width: '80%',
-    margin: 2,
+    width: 'auto',
+    maxWidth: '90%',
     height: 'auto',
     padding: 0.5,
     '& .MuiChip-label': {
@@ -18,23 +18,23 @@ const styles = {
 };
 
 
-function TextMessage () {
+function TextMessage ({ username, message }) {
   return (
     <Stack>
-      <span className="message-username">userName</span>
-      <span className="message-text" >Message Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et voluptatibus est repudiandae soluta consequatur explicabo, assumenda, eligendi voluptate atque obcaecati eaque libero. Ea, quo unde harum dicta architecto delectus fugit.</span>
+      <span className="message-username">{username}</span>
+      <span className="message-text" >{message}</span>
     </Stack>
   );
 }
 
 
-const Message = () => {
+const Message = ({ username, message }) => {
   return (
     <div className="container-chip">
       <Chip
           sx={styles.item}
           avatar={<Avatar alt="Natacha" src="/static/images/avatar/1.jpg" />}
-          label={<TextMessage/>}
+          label={<TextMessage username={username} message={message} />}
       />
     </div>
   );
